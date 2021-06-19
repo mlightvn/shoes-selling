@@ -28,11 +28,11 @@
     	    <div class="footer_section_2">
 		        <div class="row">
     		        <div class="col-sm-4 col-lg-2">
-    		        	<p class="dummy_text"> ipsum dolor sit amet, consectetur ipsum dolor sit amet, consectetur  ipsum dolor sit amet,</p>
+    		        	<p class="dummy_text"> Shoes selling e-commerce site</p>
     		        </div>
     		        <div class="col-sm-4 col-lg-2">
     		        	<h2 class="shop_text">Address </h2>
-    		        	<div class="image-icon"><img src="images/map-icon.png"><span class="pet_text">No 40 Baria Sreet 15/2 NewYork City, NY, United States.</span></div>
+    		        	<div class="image-icon"><img src="images/map-icon.png"><span class="pet_text">120-0005、東京都足立区綾瀬6-13-12</span></div>
     		        </div>
     		        <div class="col-sm-4 col-md-6 col-lg-3">
     				    <h2 class="shop_text">Our Company </h2>

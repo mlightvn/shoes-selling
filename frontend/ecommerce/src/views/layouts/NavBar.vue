@@ -14,8 +14,8 @@
               <div class="navbar-nav">
                 <router-link class="nav-item nav-link" to="/">Home</router-link>
                 <router-link class="nav-item nav-link" to="/collection">Collection</router-link>
-                <router-link class="nav-item nav-link" to="/shoes">Shoes</router-link>
-                <router-link class="nav-item nav-link" to="/racing-boots">Racing Boots</router-link>
+                <router-link class="nav-item nav-link" to="/categories/shoes">Shoes</router-link>
+                <router-link class="nav-item nav-link" to="/categories/racing-boots">Racing Boots</router-link>
                 <router-link class="nav-item nav-link" to="/contact">Contact</router-link>
                 <router-link class="nav-item nav-link last" to="/products"><img src="images/search_icon.png"></router-link>
                 <router-link class="nav-item nav-link last" to="/cart"><img src="images/shop_icon.png"></router-link>

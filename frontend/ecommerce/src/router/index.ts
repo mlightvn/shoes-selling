@@ -1,5 +1,6 @@
 import { createRouter, createWebHistory, RouteRecordRaw } from "vue-router";
 import Home from "@/views/Home.vue";
+import ParentTemplate from '@/components/layouts/ParentTemplate.vue'
 
 const routes: Array<RouteRecordRaw> = [
   {
@@ -10,11 +11,50 @@ const routes: Array<RouteRecordRaw> = [
   {
     path: "/about",
     name: "About",
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
     component: () =>
-      import(/* webpackChunkName: "about" */ "../views/About.vue"),
+      import("../views/About.vue"),
+  },
+  {
+    path: "/collection",
+    component: () =>
+      import("../views/Collection.vue"),
+  },
+  {
+    path: "/products",
+    component: () => import("../views/Products.vue"),
+    children: [
+      {
+        path: ":id",
+        component: () =>
+          import("../views/Products.vue"),
+      },
+    ],
+  },
+  {
+    path: "/categories",
+    component: ParentTemplate,
+    children: [
+      {
+        path: "shoes",
+        component: () =>
+          import("../views/Products.vue"),
+      },
+      {
+        path: "racing-boots",
+        component: () =>
+          import("../views/categories/RacingBoots.vue"),
+      },
+    ],
+  },
+  {
+    path: "/contact",
+    component: () =>
+      import("../views/Contact.vue"),
+  },
+  {
+    path: "/:pathMatch(.*)*",
+    name: "not_found",
+    component: () => import('@/views/errors/404.vue'),
   },
 ];
 
