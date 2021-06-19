@@ -1,0 +1,2 @@
+# DB: MariaDB
+https://mariadb.com/kb/en/getting-started-with-the-nodejs-connector/

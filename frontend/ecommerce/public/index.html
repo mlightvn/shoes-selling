@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <link rel="icon" href="<%= BASE_URL %>favicon.ico">
+    <title><%= htmlWebpackPlugin.options.title %></title>
+
+    <meta name="keywords" content="mlightvn">
+    <meta name="description" content="Shoes Selling">
+    <meta name="author" content="Nguyen Ngoc Nam">
+    <!-- bootstrap css -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <!-- style css -->
+    <link rel="stylesheet" href="/css/style.css">
+    <!-- Responsive-->
+    <link rel="stylesheet" href="/css/responsive.css">
+    <!-- favicon -->
+    <link rel="icon" href="/img/icon/favicon.ico" type="image/icon" />
+    <!-- Scrollbar Custom CSS -->
+    <link rel="stylesheet" href="/css/jquery.mCustomScrollbar.min.css">
+    <!-- Tweaks for older IEs-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <!-- owl stylesheets --> 
+    <link rel="stylesheet" href="/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="/css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css" media="screen">
+
+  </head>
+  <body>
+    <noscript>
+      <strong>We're sorry but <%= htmlWebpackPlugin.options.title %> doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
+    </noscript>
+    <div id="app"></div>
+    <!-- built files will be auto injected -->
+
+    <!-- Javascript files-->
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/popper.min.js"></script>
+    <script src="/js/bootstrap.bundle.min.js"></script>
+    <script src="/js/jquery-3.0.0.min.js"></script>
+    <script src="/js/plugin.js"></script>
+    <!-- sidebar -->
+    <script src="/js/jquery.mCustomScrollbar.concat.min.js"></script>
+    <script src="/js/custom.js"></script>
+    <!-- javascript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js" integrity="sha512-RXf+QSDCUQs5uwRKaDoXt55jygZZm2V++WUZduaU/Ui/9EGp3f/2KZVahFZBKGH0s774sd3HmrhUy+SgOFQLVQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="/js/owl.carousel.min.js"></script>
+    <script src="https:cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.js"></script>
+    <script>
+    $(document).ready(function(){
+      $(".fancybox").fancybox({
+        openEffect: "none",
+        closeEffect: "none"
+      });
+
+      $('#myCarousel').carousel({
+        interval: false
+      });
+
+      //scroll slides on swipe for touch enabled devices
+
+      $("#myCarousel").on("touchstart", function(event){
+
+        var yClick = event.originalEvent.touches[0].pageY;
+        $(this).one("touchmove", function(event){
+
+          var yMove = event.originalEvent.touches[0].pageY;
+          if( Math.floor(yClick - yMove) > 1 ){
+            $(".carousel").carousel('next');
+          }
+          else if( Math.floor(yClick - yMove) < -1 ){
+            $(".carousel").carousel('prev');
+          }
+        });
+        $(".carousel").on("touchend", function(){
+          $(this).off("touchmove");
+        });
+      });
+    });
+    </script>
+
+  </body>
+</html>
