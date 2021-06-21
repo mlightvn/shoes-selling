@@ -77,8 +77,8 @@
 
 </template>
 
-<script lang="ts">
-import AppConfig from "@/config/default.ts";
+<script>
+import AppConfig from "@/config/default.js";
 
 export default {
 	data(){

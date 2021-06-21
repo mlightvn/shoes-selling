@@ -12,16 +12,15 @@
 
 </template>
 
-<script lang="ts">
-import { Options, Vue } from "vue-class-component";
+
+<script>
 import Header from "@/views/layouts/Header.vue";
 import Footer from "@/views/layouts/Footer.vue";
 
-@Options({
+export default {
   components: {
     Header,
     Footer,
   },
-})
-export default class App extends Vue {}
+}
 </script>
