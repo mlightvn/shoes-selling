@@ -1,5 +1,13 @@
 var express = require('express');
 var router = express.Router();
+var cors = require('cors')
+
+const corsOptions = {
+  origin: "*",
+  optionsSuccessStatus: 200, // some legacy browsers (IE11, various SmartTVs) choke on 204
+  methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
+  preflightContinue: true,
+}
 
 var itemsList = [
   {id: 1, name: "Product 1"},
@@ -28,29 +36,57 @@ router.get('/', function(req, res, next) {
   let data = {
     list: itemsList
   }
-  res.json(data);
+  res.send(data);
 });
 
-router.get('/:id', function(req, res, next) {
+router.get('/search', cors(corsOptions), function(req, res, next) {
+  const model = cleanParameters(req.query)
+  console.log("model")
+  console.log(model)
+  let list = itemsList.filter(item => {
+    let isEqual = true
+    for (let key in model){
+      if(model[key] != item[key]){
+        isEqual = false
+      }
+    }
+    return isEqual
+  })
+  let data = {
+    list: list
+  }
+  res.send(data);
+});
+
+router.get('/:id', cors(corsOptions), function(req, res, next) {
   const id = req.params.id
   let data = getItem(id)
-  res.json(data);
+  res.send(data);
 });
 
-router.post('/:id', function(req, res, next) {
+router.post('/:id', cors(corsOptions), function(req, res, next) {
   const id = req.query.id
   let data = getItem(id)
-  res.json(data);
+  res.send(data);
 });
 
-router.put('/:id', function(req, res, next) {
+router.put('/:id', cors(corsOptions), function(req, res, next) {
   const id = req.query.id
   let data = getItem(id)
-  res.json(data);
+  res.send(data);
 });
 
 function getItem(id){
   return itemsList.find(product => product.id == id)
+}
+
+function cleanParameters(params) {
+  for (const key in params){
+    if (params[key] == null) {
+      delete params[key]
+    }
+  }
+  return params
 }
 
 module.exports = router;
