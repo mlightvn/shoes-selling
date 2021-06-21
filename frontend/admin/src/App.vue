@@ -26,21 +26,19 @@
   </div>
 </template>
 
-<script lang="ts">
-import { Options, Vue } from "vue-class-component";
+<script>
 import NavBar from "@/views/layouts/NavBar.vue";
 import TopBar from "@/views/layouts/TopBar.vue";
 import Footer from "@/views/layouts/Footer.vue";
 import LogoutModal from "@/views/layouts/LogoutModal.vue";
 
-
-@Options({
+export default {
   components: {
     NavBar,
     TopBar,
     Footer,
     LogoutModal,
   },
-})
-export default class App extends Vue {}
+
+}
 </script>

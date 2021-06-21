@@ -86,14 +86,13 @@
 
 </template>
 
-<script lang="ts">
-import { Options, Vue } from "vue-class-component";
+<script>
 import NavBarBackup from "@/components/layouts/navbar/NavBarBackup.vue"
 
-@Options({
+export default {
   components: {
     NavBarBackup,
   },
-})
-export default class NavBar extends Vue {}
+
+}
 </script>

@@ -22,8 +22,7 @@
   </div>
 </template>
 
-<script lang="ts">
-import { Options, Vue } from "vue-class-component";
+<script>
 import EarningsMonthly from "@/components/dashboard/EarningsMonthly.vue";
 import EarningsAnnual from "@/components/dashboard/EarningsAnnual.vue";
 import Tasks from "@/components/dashboard/Tasks.vue";
@@ -31,10 +30,7 @@ import PendingRequests from "@/components/dashboard/PendingRequests.vue";
 import EarningsOverview from "@/components/dashboard/EarningsOverview.vue";
 import Projects from "@/components/dashboard/Projects.vue";
 
-@Options({
-  props: {
-    msg: String,
-  },
+export default {
   components: {
     EarningsMonthly,
     EarningsAnnual,
@@ -43,8 +39,6 @@ import Projects from "@/components/dashboard/Projects.vue";
     EarningsOverview,
     Projects,
   },
-})
-export default class Dashboard extends Vue {
-  msg!: string;
+
 }
 </script>

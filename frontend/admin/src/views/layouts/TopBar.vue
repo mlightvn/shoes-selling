@@ -96,16 +96,15 @@
 
 </template>
 
-<script lang="ts">
-import { Options, Vue } from "vue-class-component";
+<script>
 import Messages from "@/components/layouts/topbar/Messages.vue"
 import Notifications from "@/components/layouts/topbar/Notifications.vue"
 
-@Options({
+export default {
   components: {
     Messages,
     Notifications,
   },
-})
-export default class TopBar extends Vue {}
+
+}
 </script>

@@ -1,6 +1,6 @@
 import { createStore } from "vuex";
 
-import products from "../../../shop/src/store/modules/products/index.ts";
+import products from "@/store/modules/products/index.js";
 
 export default createStore({
   state: {},

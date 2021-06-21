@@ -31,7 +31,7 @@
     </div>
 </template>
 
-<script lang="javascript">
+<script>
 export default {
 
   data() {
