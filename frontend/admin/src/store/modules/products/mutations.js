@@ -1,5 +1,5 @@
 export default {
-    setItems(state, value){
+    setItems: (state, value) => {
         state.items = value;
     },
 }
