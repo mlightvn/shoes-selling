@@ -10,7 +10,9 @@
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-          <div class="row">
+          <div class="row"
+            v-if="false"
+          >
             <div class="col-4">
               ID
             </div>

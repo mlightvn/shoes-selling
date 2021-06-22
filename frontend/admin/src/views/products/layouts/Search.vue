@@ -12,7 +12,7 @@
                 ID
               </div>
               <div class="col-8">
-                <input type="number" v-model="model.id" class="form-control">
+                <input type="number" v-model="model.id" class="form-control" min="1" step="1">
               </div>
             </div>
           </div>

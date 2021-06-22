@@ -16,7 +16,7 @@
                 ID
               </div>
               <div class="col-8">
-                <input type="number" v-model="model.id" class="form-control">
+                {{model.id}}
               </div>
             </div>
             <div class="row">
