@@ -10,7 +10,7 @@ export default {
     let data = null
     await Api.get(SUB_URI)
       .then(function (response) {
-          data = response?.data?.list
+        data = response?.data?.list
       })
       .catch(function (error) {
         console.log("error");
@@ -29,6 +29,10 @@ export default {
 
   async get(id) {
     return await Api.get(SUB_URI + "/" + id);
+  },
+
+  async delete(id) {
+    return await Api.delete(SUB_URI + "/" + id);
   },
 
   async search(model) {

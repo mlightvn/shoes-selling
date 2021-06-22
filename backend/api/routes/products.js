@@ -64,16 +64,15 @@ router.get('/:id', cors(corsOptions), function(req, res, next) {
   res.send(data);
 });
 
-router.post('/:id', cors(corsOptions), function(req, res, next) {
-  const id = req.query.id
-  let data = getItem(id)
-  res.send(data);
+router.post('', cors(corsOptions), function(req, res, next) {
+  const model = cleanParameters(req.query)
+  itemsList.push(model)
+  res.send(model);
 });
 
 router.put('/:id', cors(corsOptions), function(req, res, next) {
-  const id = req.query.id
-  let data = getItem(id)
-  res.send(data);
+  const model = cleanParameters(req.query)
+  res.send(model);
 });
 
 function getItem(id){

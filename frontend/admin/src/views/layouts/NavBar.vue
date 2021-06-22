@@ -42,9 +42,67 @@
     </li>
 
     <li class="nav-item">
-      <router-link class="nav-link" to="/users">
+      <router-link class="nav-link" to="/brands">
+        <i class="fab fa-fw fa-battle-net"></i>
+        <span>Brands</span>
+      </router-link>
+    </li>
+
+    <li class="nav-item">
+      <router-link class="nav-link" to="/categories">
+        <i class="fab fa-fw fa-battle-net"></i>
+        <span>Categories</span>
+      </router-link>
+    </li>
+
+    <li class="nav-item">
+      <router-link class="nav-link" to="/customers">
         <i class="fas fa-fw fa-users"></i>
-        <span>Users</span>
+        <span>Customers</span>
+      </router-link>
+    </li>
+
+    <!-- Divider -->
+    <hr class="sidebar-divider">
+
+    <!-- Heading -->
+    <div class="sidebar-heading">
+        Communication
+    </div>
+
+    <li class="nav-item">
+      <router-link class="nav-link" to="/notifications">
+        <i class="fas fa-fw fa-bell"></i>
+        <span>Notifications</span>
+      </router-link>
+    </li>
+
+    <li class="nav-item">
+      <router-link class="nav-link" to="/messages">
+        <i class="fas fa-fw fa-comments-dollar"></i>
+        <span>Messages</span>
+      </router-link>
+    </li>
+
+    <!-- Divider -->
+    <hr class="sidebar-divider">
+
+    <!-- Heading -->
+    <div class="sidebar-heading">
+        Payment
+    </div>
+
+    <li class="nav-item">
+      <router-link class="nav-link" to="/orders">
+        <i class="fas fa-fw fa-file-invoice-dollar"></i>
+        <span>Orders</span>
+      </router-link>
+    </li>
+
+    <li class="nav-item">
+      <router-link class="nav-link" to="/profit-and-loss">
+        <i class="fas fa-fw fa-balance-scale"></i>
+        <span>Profit and Loss</span>
       </router-link>
     </li>
 

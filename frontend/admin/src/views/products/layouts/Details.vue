@@ -48,7 +48,7 @@
     </div>
 
     <NewItemModal />
-    <EditItemModal :edit_item_modal="edit_item_modal" />
+    <EditItemModal />
   </div>
 </template>
 
@@ -72,8 +72,6 @@ export default {
           {text: "", value: "actions"},
       ],
 
-      edit_item_modal: null,
-
     };
   },
 
@@ -89,10 +87,12 @@ export default {
     }),
     ...mapMutations({
       setItems: "products/setItems",
+      setEditedItem: "products/setEditedItem",
     }),
     ...mapActions({
       fetchItems: "products/fetchItems",
       searchItems: "products/searchItems",
+      post: "products/post",
     }),
 
     async search (model) {
@@ -103,8 +103,7 @@ export default {
     },
 
     async openEditModal (model) {
-      this.edit_item_modal = model
-      console.log(this.edit_item_modal)
+      this.setEditedItem(model)
     },
   },
 

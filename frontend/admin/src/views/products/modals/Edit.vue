@@ -24,7 +24,7 @@
                 Name
               </div>
               <div class="col-8">
-                <input type="number" v-model="model.name" class="form-control">
+                <input type="text" v-model="model.name" class="form-control">
               </div>
             </div>
           </div>
@@ -39,31 +39,46 @@
 </template>
 
 <script>
+import { mapGetters, mapMutations } from "vuex";
+
 export default {
   props: {
-    edit_item_modal: Object,
+    // edit_item_modal: Object,
   },
   data() {
     return {
-      model: {
+      model_default: {
         id: null,
         name: null,
       }
     }
   },
 
-  watch: {
-    "edit_item_modal": async function() {
-      console.log("edit_item_modal changed")
-      this.model = this.edit_item_modal
+  computed: {
+    model: {
+      get(){
+        let item = this.getEditedItem() ?? this.model_default
+        return item
+      }
     }
   },
 
-  created() {
-    console.log("created")
-    console.log("this.edit_item_modal")
-    console.log(this.edit_item_modal)
+  watch: {
   },
+
+  methods: {
+    ...mapGetters({
+      getEditedItem: "products/getEditedItem",
+    }),
+    ...mapMutations({
+      setEditedItem: "products/setEditedItem",
+    }),
+
+  },
+
+  // created() {
+  //   console.log("created")
+  // },
 
 }
 </script>

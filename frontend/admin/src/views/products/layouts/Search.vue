@@ -42,7 +42,7 @@
         <div class="row">
           <div class="col-12 text-right">
             <button type="button" class="btn btn-primary mx-1" @click="search"><i class="fas fa-search"></i></button>
-            <button type="button" class="btn btn-secondary mx-1" @click="reset"><i class="fas fa-recycle"></i></button>
+            <button type="button" class="btn btn-secondary mx-1" @click="reset"><i class="fas fa-sync-alt"></i></button>
           </div>
         </div>
       </div>
@@ -70,6 +70,12 @@ export default {
       this.$emit("search", this.model)
     },
     async reset () {
+      this.model = {
+        id: null,
+        name: null,
+        brand: null,
+      }
+
       this.$emit("reset")
     },
   }
