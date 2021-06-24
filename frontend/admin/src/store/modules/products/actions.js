@@ -19,13 +19,14 @@ export default {
 
         return items
     },
-    post: async ({commit}, model) => {
-        await ApiProducts.post(model.id, model)
+    post: async ({commit, dispatch}, model) => {
+        await ApiProducts.post("", model)
         .then(function (response) {
-            console.log("response?.data?.model")
-            console.log(response?.data?.model)
+            console.log("response?.data")
+            console.log(response?.data)
 
             commit("setAddedItem", model);
+            dispatch("fetchItems")
         })
 
         return model
@@ -41,15 +42,22 @@ export default {
 
         return model
     },
-    delete: async ({commit}, model) => {
-        await ApiProducts.delete(model.id)
-        .then(function (response) {
-            console.log("response?.data?.model")
-            console.log(response?.data?.model)
 
-            commit("setEditedItem", model);
+    /* eslint-disable */
+    async delete({dispatch}, id) {
+        if(id === null){
+            return null
+        }
+
+        await ApiProducts.delete(id)
+        .then(function (response) {
+            console.log("response?.data")
+            console.log("response?.data")
+            console.log(response?.data)
+
+            dispatch("fetchItems")
         })
 
-        return model
+        return
     },
 }

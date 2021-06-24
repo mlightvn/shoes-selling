@@ -29,7 +29,10 @@
             </div>
           </div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-primary"><i class="fas fa-cloud-upload-alt"></i></button>
+            <button type="button" class="btn btn-primary"
+              @click="handleUpdate"
+              data-bs-dismiss="modal"
+            ><i class="fas fa-cloud-upload-alt"></i></button>
             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"><i class="fas fa-times"></i></button>
           </div>
         </div>
@@ -39,7 +42,8 @@
 </template>
 
 <script>
-import { mapGetters, mapMutations } from "vuex";
+import { mapState, mapGetters, mapMutations, mapActions } from "vuex";
+import { cloneDeep } from "lodash"
 
 export default {
   props: {
@@ -50,20 +54,22 @@ export default {
       model_default: {
         id: null,
         name: null,
-      }
-    }
-  },
-
-  computed: {
-    model: {
-      get(){
-        let item = this.getEditedItem() ?? this.model_default
-        return item
-      }
+      },
+      model: null,
     }
   },
 
   watch: {
+    "editedItem": async function () {
+      this.model = await this.getEditedItem() ?? this.model_default
+      this.model = cloneDeep(this.model)
+    },
+  },
+
+  computed: {
+    ...mapState({
+      editedItem: (state) => state.products.editedItem,
+    }),
   },
 
   methods: {
@@ -71,14 +77,27 @@ export default {
       getEditedItem: "products/getEditedItem",
     }),
     ...mapMutations({
-      setEditedItem: "products/setEditedItem",
+      // setEditedItem: "products/setEditedItem",
     }),
+    ...mapActions({
+      fetchItems: "products/fetchItems",
+      // searchItems: "products/searchItems",
+      put: "products/put",
+    }),
+
+
+    async handleUpdate () {
+      await this.put(this.model)
+      await this.fetchItems()
+    }
 
   },
 
-  // created() {
-  //   console.log("created")
-  // },
+  created() {
+    console.log("created")
+    this.model = this.model_default
+
+  },
 
 }
 </script>

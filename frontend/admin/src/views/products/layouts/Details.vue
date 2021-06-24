@@ -33,13 +33,17 @@
                 v-for="(value, item_value_index) in item"
                 :key="item_value_index"
               >{{value}}</td>
-              <td>
+              <td
+                v-if="item"
+              >
                 <button type="button" class="btn btn-primary mx-1"
                   data-bs-toggle="modal"
                   data-bs-target="#EditItemModal"
                   @click="openEditModal(item)"
                 ><i class="fas fa-pencil-alt"></i></button>
-                <button type="button" class="btn btn-danger mx-1"><i class="fas fa-trash"></i></button>
+                <button type="button" class="btn btn-danger mx-1"
+                  @click="handleDeleteModal(item.id)"
+                ><i class="fas fa-trash"></i></button>
               </td>
             </tr>
           </tbody>
@@ -69,7 +73,7 @@ export default {
       headers: [
           {text: "#", value: "id"},
           {text: "Name", value: "name"},
-          {text: "", value: "actions"},
+          {text: "",},
       ],
 
     };
@@ -86,13 +90,14 @@ export default {
       getItems: "products/getItems",
     }),
     ...mapMutations({
-      setItems: "products/setItems",
+      // setItems: "products/setItems",
       setEditedItem: "products/setEditedItem",
     }),
     ...mapActions({
       fetchItems: "products/fetchItems",
       searchItems: "products/searchItems",
       post: "products/post",
+      delete: "products/delete",
     }),
 
     async search (model) {
@@ -104,6 +109,11 @@ export default {
 
     async openEditModal (model) {
       this.setEditedItem(model)
+    },
+
+    async handleDeleteModal (id) {
+      console.log("handleDeleteModal", id)
+      this.delete(id)
     },
   },
 

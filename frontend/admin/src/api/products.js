@@ -19,12 +19,12 @@ export default {
     return data
   },
 
-  async post(id, data) {
-    return await Api.post(SUB_URI + "/" + id, data);
+  async post(id, model) {
+    return await Api.post(SUB_URI + "/" + id, model);
   },
 
-  async put(id, data) {  
-    return await Api.put(SUB_URI + "/" + id, data);
+  async put(id, model) {  
+    return await Api.put(SUB_URI + "/" + id, model);
   },
 
   async get(id) {
